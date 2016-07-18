@@ -1,0 +1,47 @@
+@font-face {
+	font-family: 'BFarnaz';
+	src: url('../fonts/BFarnaz.eot?#') format('eot'),  /* IE6�8 */ url('../fonts/BFarnaz.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/BFarnaz.ttf') format('truetype');  /* Saf3�5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+@font-face {
+	font-family: 'BYekan';
+	src: url('../fonts/BYekan.eot?#') format('eot'),  /* IE6�8 */ url('../fonts/BYekan.woff') format('woff'),  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/ url('../fonts/BYekan.ttf') format('truetype');  /* Saf3�5, Chrome4+, FF3.5, Opera 10+ */
+}
+
+.box {
+	display: inline-block;
+}
+
+.farsi, li, span{
+	font-family: BYekan;
+	color: white;
+    direction: rtl;
+}
+
+#menu {
+	position:fixed;
+	top:0px;
+	height: 50px;
+	width: 100%;
+	background: #620000;
+}
+
+li {
+	display: inline;
+	color: khaki;
+	margin-left: 10px;
+}
+
+.link:hover{
+    color: aqua;
+}
+
+#fullContainer{
+	float: right;
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	background: url(../img/background.png);
+	background-repeat: repeat;
+}
