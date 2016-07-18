@@ -1,6 +1,8 @@
-module.exports = function (app, express){
+module.exports = function (app){
     const path = require('path');
     const exphbs = require('express-handlebars');
+    
+    const express = require('express');
 
     app.engine('.hbs', exphbs({  
       defaultLayout: 'main',
