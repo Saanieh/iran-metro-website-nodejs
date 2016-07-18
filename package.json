@@ -1,0 +1,23 @@
+{
+  "name": "iran-metro-website",
+  "version": "1.0.0",
+  "description": "A website for iran metro project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emranbm/iran-metro-website.git"
+  },
+  "keywords": [
+    "node.js",
+    "website"
+  ],
+  "author": "Mr. Coder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emranbm/iran-metro-website/issues"
+  },
+  "homepage": "https://github.com/emranbm/iran-metro-website#readme"
+}
