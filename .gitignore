@@ -39,3 +39,4 @@ jspm_packages
 
 # My ignores
 db-config.json
+.vscode/*
