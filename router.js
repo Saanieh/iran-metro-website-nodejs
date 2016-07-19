@@ -1,6 +1,16 @@
 module.exports = function(app){
     app.get('/',(req,res) => {
-        res.render('index', {title: 'Iran Metro'});
+        
+        var msg;
+        if (req.cookies.msg){
+            msg = req.cookies.msg; 
+            res.clearCookie('msg');
+        }
+        
+        res.render('index', {
+            title: 'Iran Metro',
+            msg: msg
+        });
     });
     
     app.get('/about',(req,res) => {
@@ -8,10 +18,18 @@ module.exports = function(app){
     });
     
     app.get('/contact-us',(req,res) => {
-        res.render('contact-us', {title: 'Contact Us'});
+        
+        var err;
+        if (req.cookies.err){
+            err = req.cookies.err; 
+            res.clearCookie('err');
+        }
+        
+        res.render('contact-us', {
+            title: 'Contact Us',
+            err: err
+        });
     });
-    
-//    require('./controllers/contact-us-controller.js').post({body: {name: "emran", email: "emran.bm@gmail.com", comment:"hello!"}}, null);
     
     app.post('/contact-us', require('./controllers/contact-us-controller.js').post);
 }
