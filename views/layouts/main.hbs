@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="lib/animate.css"/>
     <link rel="stylesheet" href="css/slider.css"/>
+    <title>{{title}}</title>
 </head>
 
 <body>
@@ -18,10 +19,21 @@
 <div id="menu">
     <ul style="position: absolute; right: 30px; display: inline; margin-bottom: 10px">
         <a href="/"><li class="link">خانه</li></a>
-        <a href="/contact-us"><li class="link">درخواست همکاری</li></a>
+        <a href="/contact-us"><li class="link">ارتباط با ما</li></a>
         <a href="/about"><li class="link">درباره ما</li></a>
     </ul>
 </div>
+    
+{{#if msg}}
+    <div class="animated fadeIn">
+        <span class="farsi topMsg animated fadeOutLeft" style="color: #b3ffa7; animation-delay: 3s">با سپاس از پیام شما</span>
+    </div>
+{{/if}}
+    
+{{#if err}}
+    <span class="farsi topMsg animated fadeOutLeft" style="color: red; animation-delay: 3s">! خطایی پیش آمده است !</span>
+{{/if}}
+    
 </body>
     <script src="script/slider.js"></script>
 </html>

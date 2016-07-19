@@ -45,3 +45,19 @@ li {
 	background: url(../img/background.png);
 	background-repeat: repeat;
 }
+
+.topMsg{
+    position: absolute;
+    top: 15px;
+    left: 43%;
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+

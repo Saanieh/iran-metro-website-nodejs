@@ -24,7 +24,7 @@ function connection(username, pass, dbName){
         })
     }
     
-    
+    return this;
 }
 
 
