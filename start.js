@@ -15,5 +15,8 @@ require('./core/init-hbs.js')(app);
 
 require('./router.js')(app);
 
-console.log('Listening on port: 3000');
-app.listen(3000);
+// for compatibility with Heroku
+var port = process.env.PORT || 3000;
+
+console.log('Listening on port:' + port);
+app.listen(process.env.PORT || 3000);
