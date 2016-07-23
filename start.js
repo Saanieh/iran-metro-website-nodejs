@@ -1,17 +1,20 @@
 const express = require('express');
 const app = express();
 
+var path = require('path');
+global.appRoot = path.resolve(__dirname);
+
 var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
 var bodyParser = require('body-parser')
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
-  extended: true
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
+    extended: true
 }));
 
 
-require('./core/init-hbs.js')(app);
+require('emran-hbs-config')(app, __dirname);
 
 require('./router.js')(app);
 
@@ -19,4 +22,4 @@ require('./router.js')(app);
 var port = process.env.PORT || 3000;
 
 console.log('Listening on port:' + port);
-app.listen(process.env.PORT || 3000);
+app.listen(port);
