@@ -2,7 +2,6 @@ const express = require('express');
 const app = express();
 
 var path = require('path');
-global.appRoot = path.resolve(__dirname);
 
 var cookieParser = require('cookie-parser');
 app.use(cookieParser());
