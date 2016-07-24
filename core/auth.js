@@ -29,6 +29,18 @@ module.exports = function (app, passport) {
     app.use(passport.initialize());
     app.use(passport.session());
 
+    app.use((req, res, next) => {
+        if (typeof req.hbsData === "undefined")
+            req.hbsData = {};
+
+        if (req.user)
+            req.hbsData.loggedIn = true;
+        else
+            req.hbsData.loggedIn = false;
+
+        next();
+    });
+
     passport.serializeUser((user, done) => {
         done(null, user.username);
     });

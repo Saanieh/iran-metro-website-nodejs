@@ -19,12 +19,18 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 
 require('emran-hbs-config')(app, __dirname);
 
+require('./middlewares/hbs-data-init.js')(app);
+
+require('./middlewares/msg-parser.js')(app);
+
 require('./core/auth.js')(app, passport);
 
-require('./router.js')(app, passport);
+require('./imports/titles.js')(app);
+
+require('./imports/router.js')(app, passport);
 
 // for compatibility with Heroku
 var port = process.env.PORT || 3000;
 
-console.log('Listening on port:' + port);
+console.log('Listening on port: ' + port);
 app.listen(port);

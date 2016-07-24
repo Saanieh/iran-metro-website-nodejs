@@ -6,7 +6,7 @@ function render(res, err) {
         res.cookie('err', err);
         res.redirect('/contact-us');
     } else {
-        res.cookie('msg', 'comment-sent');
+        res.cookie('msg', 'با سپاس از پیام شما');
         res.redirect('/');
     }
 }

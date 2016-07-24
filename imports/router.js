@@ -7,19 +7,14 @@ module.exports = function (app, passport) {
             res.clearCookie('msg');
         }
 
-        res.render('index', {
-            title: 'Iran Metro',
-            msg: msg
-        });
+        req.hbsData.msg = msg;
+
+        res.render('index', req.hbsData);
     });
 
     app.get('/about', (req, res) => {
 
-        console.log(req.user);
-
-        res.render('about', {
-            title: 'About Us'
-        });
+        res.render('about', req.hbsData);
     });
 
     app.get('/contact-us', (req, res) => {
@@ -30,26 +25,27 @@ module.exports = function (app, passport) {
             res.clearCookie('err');
         }
 
-        res.render('contact-us', {
-            title: 'Contact Us',
-            err: err
-        });
+        req.hbsData.err = err;
+
+        res.render('contact-us', req.hbsData);
     });
 
-    app.post('/contact-us', require('./controllers/contact-us-controller.js').post);
+    app.post('/contact-us', require(global.rootPath + '/controllers/contact-us-controller.js').post);
 
     app.get('/login', (req, res) => {
-        var err;
-        if (req.cookies.err) {
-            err = req.cookies.err;
-            res.clearCookie('err');
-        } else if (req.user != null)
-            return res.redirect('/admin');
+//        var err;
+//        if (req.cookies.err) {
+//            req.hbsData.err = req.cookies.err;
+//            res.clearCookie('err');
+//        } else if (req.user)
+//            return res.redirect('/admin');
+//
+//        if (req.cookies.msg) {
+//            req.hbsData.msg = req.cookies.msg;
+//            res.clearCookie('msg');
+//        }
 
-        res.render('login', {
-            title: 'Login',
-            err: err
-        });
+        res.render('login', req.hbsData);
     });
 
     app.get('/admin', (req, res) => {
@@ -66,9 +62,9 @@ module.exports = function (app, passport) {
                     posts.push(doc);
             });
 
-            res.render('admin', {
-                comments: posts
-            });
+            req.hbsData.comments = posts;
+
+            res.render('admin', req.hbsData);
         });
     });
 
@@ -79,4 +75,14 @@ module.exports = function (app, passport) {
                 //            failureFlash: true
         })
     );
+
+    app.get('/fail', (req, res) => {
+        res.cookie('msg', 'اطلاعات وارد شده اشتباه است');
+        res.redirect('/login');
+    })
+
+    app.get('/logout', (req, res) => {
+        req.logout();
+        res.redirect('/');
+    });
 }
