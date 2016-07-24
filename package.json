@@ -26,7 +26,10 @@
     "cookie-parser": "^1.4.3",
     "emran-hbs-config": "^1.0.1",
     "express": "^4.14.0",
+    "express-session": "^1.14.0",
     "mongodb": "^2.2.4",
-    "mysql": "^2.11.1"
+    "mysql": "^2.11.1",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
   }
 }

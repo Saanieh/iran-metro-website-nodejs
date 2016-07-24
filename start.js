@@ -3,6 +3,10 @@ const app = express();
 
 var path = require('path');
 
+global.rootPath = __dirname;
+
+var passport = require('passport');
+
 var cookieParser = require('cookie-parser');
 app.use(cookieParser());
 
@@ -15,7 +19,9 @@ app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
 
 require('emran-hbs-config')(app, __dirname);
 
-require('./router.js')(app);
+require('./core/auth.js')(app, passport);
+
+require('./router.js')(app, passport);
 
 // for compatibility with Heroku
 var port = process.env.PORT || 3000;

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 
 function render(res, err) {
     if (err) {
@@ -19,24 +19,15 @@ function post(req, res) {
         comment: req.body.comment
     }
 
-    // reads config for stuff like db password and ...
-    //    fs.readFile(__dirname + '/../db-config.json', 'utf-8', (err, data) => {
-    //        if (err) {
-    //            error = "config read failed";
-    //            render(res, error);
-    //            return;
-    //        }
+    const mongo = require(global.rootPath + '/core/mongodb.js');
 
-    //        var dbConfig = JSON.parse(data);
-    MongoClient.connect('mongodb://localhost:27017/iranmetro', (err, db) => {
+    mongo.connect((err, db) => {
         if (err)
             return render(res, 'db connection failed.');
         db.collection('comments').insertOne(comment);
-        db.close();
 
         render(res, null);
     });
-    //    });
 }
 module.exports = {
     post: post
