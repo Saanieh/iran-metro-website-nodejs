@@ -30,7 +30,7 @@ require('./imports/titles.js')(app);
 require('./imports/router.js')(app, passport);
 
 // for compatibility with Heroku
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 4000;
 
 console.log('Listening on port: ' + port);
 app.listen(port);
